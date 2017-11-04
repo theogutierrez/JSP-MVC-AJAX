@@ -12,11 +12,16 @@ public class DataSourceFactory {
 		embedded, server
 	};
 
+	/**
+	 * Renvoie la source de données (server ou embbeded)
+	 * @param type le type de la source de données
+	 * @return  la source de données
+	 */
 	public static DataSource getDataSource(DriverType type) {
 		DataSource result;
 
 		switch (type) {
-			case server:
+			case server: // Derby mode serveur, doit être démarré indépendamment
 				org.apache.derby.jdbc.ClientDataSource ds = new org.apache.derby.jdbc.ClientDataSource();
 				ds.setDatabaseName("sample");
 				ds.setUser("app");
@@ -27,10 +32,10 @@ public class DataSourceFactory {
 				ds.setPortNumber(1527);
 				result = ds;
 				break;
-			default:
+			default: // Derby mode embedded, démarré automatiquement avec l'application
 				org.apache.derby.jdbc.EmbeddedDataSource es = new org.apache.derby.jdbc.EmbeddedDataSource();
 				es.setCreateDatabase("create");
-				es.setDatabaseName("embedded_sample3");
+				es.setDatabaseName("embedded_sample");
 				result = es;
 		}
 

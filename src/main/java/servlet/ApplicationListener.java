@@ -16,7 +16,7 @@ import model.DiscountCode;
 import org.apache.derby.tools.ij;
 
 /**
- * Web application lifecycle listener.
+ * Web application lifecycle listener, initialise la base de données au démarrage de l'application si nécessaire
  */
 @WebListener()
 public class ApplicationListener implements ServletContextListener {
@@ -41,7 +41,7 @@ public class ApplicationListener implements ServletContextListener {
 			List<DiscountCode> allCodes = dao.allCodes();
 			Logger.getLogger("DiscountEditor").log(Level.INFO, "Database already exists");
 			result = true;
-		} catch (Exception ex) {
+		} catch (SQLException ex) {
 			Logger.getLogger("DiscountEditor").log(Level.INFO, "Database does not exist");
 		}
 		return result;

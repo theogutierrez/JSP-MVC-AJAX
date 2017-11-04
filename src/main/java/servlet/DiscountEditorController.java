@@ -13,7 +13,7 @@ import model.DAO;
 import model.DataSourceFactory;
 
 /**
- *
+ * Le contrôleur de l'application
  * @author rbastide
  */
 @WebServlet(name = "discountEditor", urlPatterns = {"/discountEditor"})
