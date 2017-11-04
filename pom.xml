@@ -21,6 +21,12 @@
 			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- For deployment to tomcat, which does not provide the JSTL -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>		
 		<!-- Derby embedded database and JDBC Driver -->
 		<dependency>
 			<groupId>org.apache.derby</groupId>
@@ -83,6 +89,7 @@
 									<version>7.0</version>
 									<type>jar</type>
 								</artifactItem>
+								<!-- for Heroku, see: https://devcenter.heroku.com/articles/java-webapp-runner -->
 								<artifactItem>
 									<groupId>com.github.jsimone</groupId>
 									<artifactId>webapp-runner</artifactId>
