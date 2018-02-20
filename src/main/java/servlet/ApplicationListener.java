@@ -18,7 +18,7 @@ import org.apache.derby.tools.ij;
 /**
  * Web application lifecycle listener, initialise la base de données au démarrage de l'application si nécessaire
  */
-@WebListener()
+// @WebListener()
 public class ApplicationListener implements ServletContextListener {
 
 	@Override
